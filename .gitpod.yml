@@ -1,5 +1,11 @@
 image: gitpod/workspace-dotnet
 
+ports:
+  - port: 5000
+    onOpen: ignore
+  - port: 5001
+    onOpen: open-preview
+
 tasks:
   - init: 'echo "TODO: Replace with init/build command"'
     command: dotnet build Challenge
