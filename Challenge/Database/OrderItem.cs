@@ -10,7 +10,7 @@ namespace Challenge
         public Order Order { get; set; }
         public Product Product { get; set; }
 
-        public bool Equals(object o)
+        public override bool Equals(object o)
         {
             OrderItem other = (OrderItem) o;
 

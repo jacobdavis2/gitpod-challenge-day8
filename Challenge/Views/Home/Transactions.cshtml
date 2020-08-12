@@ -1,0 +1,10 @@
+@{
+    ViewData["Title"] = "Transactions";
+    List<Order> orders = (List<Order>)ViewData["orders"];
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>Complete this page!</p>
+
+@for(var i = 0; i < orders.Count; ++i)
+    {<p>Id: @orders[i].Id , CustId: @orders[i].CustomerId</p>}

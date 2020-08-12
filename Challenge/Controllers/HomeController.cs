@@ -1,10 +1,12 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+
+using Challenge;
 using Challenge.Models;
 
 namespace Challenge.Controllers
@@ -12,10 +14,16 @@ namespace Challenge.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly ChallengeContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, ChallengeContext context)
         {
             _logger = logger;
+            _context = context;
+
+            // Note that you may have to do this for every controller, if you
+            // do make more controllers! This is due to the in-memory database
+            context.InitDatabaseAsync();
         }
 
         public IActionResult Index()
@@ -23,7 +31,7 @@ namespace Challenge.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Transactions()
         {
             return View();
         }
